@@ -1,0 +1,142 @@
+//样式重置
+body, h1, h2, h3, h4, h5, h6, ul, li {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Hiragino Sans GB", "Microsoft Yahei", SimHei, arial, sans-serif;
+    background: url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+    vertical-align: top;
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+input,
+button,
+textarea {
+    outline: none;
+}
+
+//共用样式
+.container {
+    width: 1000px;
+    min-width: 1000px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    zoom: 1;
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+#header {
+    .nav {
+        text-align: center;
+        position: fixed;
+        left: 50%;
+        margin-left: -500px;
+        z-index: 999;
+        width: 1000px;
+        box-sizing: border-box;
+        li {
+            float: left;
+            position: relative;
+            width: 177px;
+            //height: 632px;
+            margin: 0 10px;
+            .hover-bg {
+                position: absolute;
+                width: 177px;
+                height: 0;
+                //height: 632px;
+                opacity: 0;
+                overflow: hidden;
+                transition: .7s ease-out;
+            }
+            .hover-text {
+                margin-top: 20px;
+            }
+            .text {
+                margin-top: 340px;
+            }
+            &.history .hover-bg {
+                background: url("../images/nav-hover-bg-1.png") no-repeat;
+            }
+            &.opera .hover-bg {
+                background: url("../images/nav-hover-bg-2.png") no-repeat;
+            }
+            &.video .hover-bg {
+                background: url("../images/nav-hover-bg-4.png") no-repeat;
+            }
+            &.music .hover-bg {
+                background: url("../images/nav-hover-bg-3.png") no-repeat;
+            }
+            a {
+                &:hover {
+                    .hover-bg {
+                        height: 632px;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        .music, .video {
+            float: right;
+        }
+    }
+}
+
+#footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 35px;
+    background: #8a1e1b;
+    font-size: 12px;
+    line-height: 35px;
+    color: #fff;
+}
+
+//首页
+#index {
+    position: relative;
+    height: 100%;
+
+    #bg-wrap {
+        width: 100%;
+        height: 100%;
+        .bamboo-2 {
+            z-index: -1;
+        }
+        .title {
+            z-index: 2;
+        }
+    }
+}
