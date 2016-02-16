@@ -1,21 +1,21 @@
 var $bodyBgWrap = $('#body-bg-wrap');
 
+$bodyBgWrap.parallax({
+    calibrateX: false,
+    calibrateY: false,
+    invertX: false,
+    invertY: false,
+    limitX: false,
+    limitY: false,
+    scalarX: 5,
+    scalarY: 5
+});
 
 //首页
 if ($('#index').length) {
     $('.nav li').parallax({
         scalarX: 10,
         scalarY: 10
-    });
-    $bodyBgWrap.parallax({
-        calibrateX: false,
-        calibrateY: false,
-        invertX: false,
-        invertY: false,
-        limitX: false,
-        limitY: false,
-        scalarX: 5,
-        scalarY: 5
     });
     indexResize();
     function indexResize() {
@@ -58,18 +58,8 @@ if ($('#index').length) {
     };
 }
 
-//细语倾诉
-if ($('#history').length) {
-    $bodyBgWrap.parallax({
-        calibrateX: false,
-        calibrateY: false,
-        invertX: false,
-        invertY: false,
-        limitX: false,
-        limitY: false,
-        scalarX: 5,
-        scalarY: 5
-    });
+//除首页外调整背景位置
+if (!$('#index').length) {
     res();
     function res() {
         $bodyBgWrap.find('.bamboo-1').css({
@@ -83,29 +73,30 @@ if ($('#history').length) {
             'left': 'auto'
         });
         $bodyBgWrap.find('.dragon').css({
-            'left': '-200px'
-        });
-        $bodyBgWrap.find('.title').css({
-            'top': '20%',
-            'left': '50%',
-            'marginLeft': '-93px'
-        });
-        $bodyBgWrap.find('.cloud-1').css({
-            'top': '50%',
-            'left': '50%',
-            'marginLeft': '-120px',
-            'marginTop': '80px'
-        });
-        $bodyBgWrap.find('.cloud-2').css({
-            'top': '50%',
-            'left': '50%',
-            'marginTop': '120px'
+            'left': '-250px',
+            'top': '50px'
         });
         $bodyBgWrap.find('.bird').css({
             'top': '18%',
             'left': '30%'
+        });
+        $bodyBgWrap.css({
+            'position': 'fixed',
+            'top': '0',
+            'zIndex': '-1'
         })
     };
+}
+
+
+//南国红豆两个子页面
+if ($('.opera-common').length) {
+    $('.opera-common').find('.list li').click(function(){
+        $('.opera-common').find('.list li').removeClass('active');
+        $(this).addClass('active');
+        $('.opera-common').find('.content').stop().slideUp();
+        $('.opera-common').find('.content').eq($(this).index()).stop().slideDown();
+    })
 }
 
 

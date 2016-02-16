@@ -8,14 +8,12 @@ html {
     width: 100%;
     height: 100%;
 }
-
 body {
     font-family: "Hiragino Sans GB", "Microsoft Yahei", SimHei, arial, sans-serif;
     background: url("../images/bg.jpg") no-repeat;
     background-size: cover;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
 li {
@@ -96,6 +94,7 @@ textarea {
                 background: url("../images/navbar-hover-3.png") no-repeat;
             }
             a {
+                &.active,
                 &:hover {
                     .hover-bg {
                         height: 113px;
@@ -109,7 +108,7 @@ textarea {
         }
     }
     .title-2{
-        position: absolute;
+        position: fixed;
         left: 50%;
         top: 30px;
         margin-left:-243/2px;
@@ -118,8 +117,6 @@ textarea {
 
 #footer {
     text-align: center;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     height: 35px;
     background: #8a1e1b;
@@ -141,5 +138,12 @@ textarea {
         img{
             transform: rotate(50deg);
         }
+    }
+}
+
+@media (min-height: 786px){
+    #footer{
+        position:fixed;
+        bottom:0;
     }
 }
