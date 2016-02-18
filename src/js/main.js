@@ -88,15 +88,75 @@ if (!$('#index').length) {
     };
 }
 
-
 //南国红豆两个子页面
 if ($('.opera-common').length) {
-    $('.opera-common').find('.list li').click(function(){
+    $('.opera-common').find('.list li').click(function () {
         $('.opera-common').find('.list li').removeClass('active');
         $(this).addClass('active');
         $('.opera-common').find('.content').stop().slideUp();
         $('.opera-common').find('.content').eq($(this).index()).stop().slideDown();
     })
+}
+
+//细语倾诉
+if ($('#history').length) {
+    var $book = $('#book')
+    var $bookMarkList = $book.find('.bookmark');
+    var $bookLi = $book.find('li');
+
+    $bookLi.eq(0).attr('onOff', false);
+    for (var i = 1; i < $bookLi.length; i++) {
+        $bookLi.eq(i).attr('onOff', true);
+    }
+
+    setZIndex();
+
+    $bookMarkList.click(function () {
+        if ($(this).parent().attr('onOff') === 'true') {
+            goLeftPage($(this).parent());
+            setZIndex();
+        } else {
+            goRightPage($(this).parent());
+            setZIndex();
+        }
+    });
+
+    //向左翻页
+    function goLeftPage(obj) {
+        obj.attr('onOff', false);
+        obj.prevAll().attr('onOff', false);
+        obj.css('transform', 'rotateY(-180deg)');
+        obj.prevAll().css('transform', 'rotateY(-180deg)');
+
+    }
+
+    //向右翻页
+    function goRightPage(obj) {
+        obj.attr('onOff', true);
+        obj.nextAll().attr('onOff', true);
+        obj.css('transform', 'rotateY(0deg)');
+        obj.nextAll().css('transform', 'rotateY(0deg)');
+    }
+
+    //动态设置z-index
+    function setZIndex() {
+        var bool = true;
+        var n = 0;
+        var len = 0;
+        for (var i = 0; i < $bookLi.length; i++) {
+            if ($bookLi.eq(i).attr('onOff') == 'false') {
+                $bookLi.eq(i).css('zIndex', $bookLi.eq(i).index() + 1);
+            } else {
+                if (bool) {
+                    bool = false;
+                    n = $bookLi.eq(i).index();
+                    len = $bookLi.length;
+                }
+                len--;
+                $bookLi.eq(i).css('zIndex', len + 1);
+            }
+        }
+    }
 }
 
 
