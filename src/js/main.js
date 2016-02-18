@@ -159,5 +159,52 @@ if ($('#history').length) {
     }
 }
 
+//劲歌金曲
+if($('#music').length){
+    var $list = $('#list');
+    var $listLi = $list.children('li');
+    var $iZ = $(window).width()/2;
+    var iNow = 0;
+    var $btns = $('#btns').find('li');
+    $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
+    $(window).resize(function(){
+        $iZ = $(window).width()/2;
+        $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
+    });
+
+    $btns.click(function(){
+        if(iNow == $(this).index()){
+            return;
+        }
+        $btns.eq(iNow).removeClass();
+        tab(iNow, $(this).index());
+        iNow = $(this).index();
+        $btns.eq(iNow).addClass('active');
+    });
+
+    function tab(iOld, iNow){
+        $list.css('transition', '.5s');
+        $list.on('webkitTransitionEnd', end);
+        if(iOld > iNow){
+            $listLi.eq(iNow).addClass('prev');
+            $list.css('transform', 'rotateY(-90deg)');
+        }else{
+            $listLi.eq(iNow).addClass('next');
+            $list.css('transform', 'rotateY(90deg)');
+        }
+
+        function end(){
+            $listLi.eq(iOld).removeClass('prev next active');
+            $list.css('transition', 'none');
+            $listLi.eq(iNow).addClass('active');
+            $list.css('WebkitTransform', 'rotateY(0deg)');
+        }
+    }
+
+
+
+
+}
+
 
 
