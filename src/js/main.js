@@ -164,7 +164,7 @@ if($('#music').length){
     var $list = $('#list');
     var $listLi = $list.children('li');
     var $iZ = $(window).width()/2;
-    var iNow = 0;
+    var iNow = 1;
     var $btns = $('#btns').find('li');
     $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
     $(window).resize(function(){
