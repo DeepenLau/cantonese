@@ -1,4 +1,5 @@
 @normalRed: #93312c;
+@normalYellow: #e9cea6;
 
 //细语倾诉
 #history {
@@ -451,13 +452,14 @@
         overflow: hidden;
         box-sizing: border-box;
         margin-left: 25px;
-        margin-bottom:40px;
-        border-radius: 35px 0 35px  0;
+        margin-bottom: 40px;
+        border-radius: 35px 0 35px 0;
         transition: .6s;
         box-shadow: 7px 7px 25px;
-        &:hover{
+        cursor: pointer;
+        &:hover {
             padding: 0 0;
-            h1{
+            h1 {
                 height: 100%;
                 padding: (237-60px)/2px 0;
                 margin: 0;
@@ -485,5 +487,208 @@
     }
     .list-4 {
         background: url("../images/video/nav-4-bg.png") no-repeat;
+    }
+}
+
+//谈笑风生二级导航
+.video-wrap {
+    .video-nav-list {
+        text-align: center;
+        li {
+            display: inline-block;
+            width: 186px;
+            height: 82px;
+            text-align: center;
+            overflow: hidden;
+            box-sizing: border-box;
+            margin-left: 25px;
+            border-radius: 15px 0 15px 0;
+            transition: .6s;
+            box-shadow: 5px 5px 12px;
+            background-size: cover !important;
+            cursor: pointer;
+            &.active,
+            &:hover {
+                padding: 0 0;
+                h1 {
+                    height: 100%;
+                    padding: (82-14px)/2px 0;
+                    margin: 0;
+                    img {
+                        height: 18px;
+                    }
+                }
+            }
+            h1 {
+                width: 100%;
+                height: 20px;
+                background: rgba(0, 0, 0, 0.6);
+                padding: (20-14)/2px 0;
+                margin: (82-14px)/2px 0;
+                box-sizing: border-box;
+                overflow: hidden;
+                transition: .6s;
+                img {
+                    height: 14px;
+                    transition: .6s;
+                }
+            }
+        }
+        .list-1 {
+            background: url("../images/video/nav-1-bg.png") no-repeat;
+        }
+        .list-2 {
+            background: url("../images/video/nav-2-bg.png") no-repeat;
+        }
+        .list-3 {
+            background: url("../images/video/nav-3-bg.png") no-repeat;
+        }
+        .list-4 {
+            background: url("../images/video/nav-4-bg.png") no-repeat;
+        }
+    }
+}
+
+//谈笑风生-盏鬼广州话
+#video-1 {
+    .video-player-wrap {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        width: 910px;
+        > div {
+            float: left;
+        }
+    }
+    .video-player {
+        width: 694px;
+        height: 438px;
+        background: #fff;
+        box-shadow: 5px 5px 30px;
+        position: relative;
+        z-index: 2;
+    }
+    .video-list {
+        width: 210px;
+        height: 438px;
+        background: @normalRed;
+        overflow-y: auto;
+        li {
+            width: 100%;
+            zoom: 1;
+            overflow: hidden;
+            border-bottom: 1px solid @normalYellow;
+            text-align: center;
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+        p {
+            float: left;
+            color: @normalYellow;
+            text-align: center;
+        }
+        .num {
+            font-size: 46px;
+        }
+        .text {
+            font-size: 22px;
+            line-height: 22px;
+            padding-top: 8px;
+            text-align: left;
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+//谈笑风生-经典广告
+#video-2 {
+    #tags-cloud-wrap {
+        position: relative;
+        width: 1000px;
+        height: 450px;
+        margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px 0;
+        a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 3px 6px;
+            white-space:nowrap;
+        }
+    }
+}
+
+//谈笑风生-栋笃笑
+#video-3 {
+    .video-player-wrap {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        width: 910px;
+        > div {
+            float: left;
+        }
+    }
+    .video-player {
+        width: 694px;
+        height: 438px;
+        background: #fff;
+        box-shadow: 5px 5px 30px;
+        position: relative;
+        z-index: 2;
+    }
+    .video-list {
+        width: 210px;
+        height: 438px;
+        background: @normalRed;
+        overflow-y: auto;
+        li {
+            width: 100%;
+            zoom: 1;
+            overflow: hidden;
+            border-bottom: 1px solid @normalYellow;
+            text-align: center;
+            box-sizing: border-box;
+            padding-left: 20px;
+        }
+        p {
+            float: left;
+            color: @normalYellow;
+            text-align: center;
+        }
+        .num {
+            font-size: 40px;
+        }
+        .text {
+            font-size: 18px;
+            line-height: 18px;
+            padding-top: 8px;
+            text-align: left;
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+//谈笑风生-舌尖上的粤语
+#video-4 {
+    .video-player-wrap {
+        margin-bottom: 30px;
+    }
+    .video-player {
+        width: 694px;
+        height: 438px;
+        background: #fff;
+        box-shadow: 5px 5px 30px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
