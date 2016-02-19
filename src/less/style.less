@@ -99,15 +99,6 @@
                 background: url("../images/history/bookmark-6.png") no-repeat;
             }
         }
-        .number-7 {
-            z-index: 1;
-            background: yellowgreen;
-            .bookmark {
-                top: @baseTop + 240;
-                background: url("../images/history/bookmark-7.png") no-repeat;
-            }
-        }
-
     }
 }
 
@@ -388,7 +379,8 @@
     }
     .wrap {
         width: 100%;
-        height: 500px;
+        height: 600px;
+        min-height: 600px;
         -webkit-perspective: 400px;
         > ul {
             width: 100%;
@@ -446,5 +438,52 @@
                 margin: 0 15px;
             }
         }
+    }
+}
+
+//谈笑风生
+#video {
+    li {
+        float: left;
+        width: 460px;
+        height: 237px;
+        text-align: center;
+        overflow: hidden;
+        box-sizing: border-box;
+        margin-left: 25px;
+        margin-bottom:40px;
+        border-radius: 35px 0 35px  0;
+        transition: .6s;
+        box-shadow: 7px 7px 25px;
+        &:hover{
+            padding: 0 0;
+            h1{
+                height: 100%;
+                padding: (237-60px)/2px 0;
+                margin: 0;
+            }
+        }
+        h1 {
+            width: 100%;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: (60-32)/2px 0;
+            margin: (237-60px)/2px 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            transition: .6s;
+        }
+    }
+    .list-1 {
+        background: url("../images/video/nav-1-bg.png") no-repeat;
+    }
+    .list-2 {
+        background: url("../images/video/nav-2-bg.png") no-repeat;
+    }
+    .list-3 {
+        background: url("../images/video/nav-3-bg.png") no-repeat;
+    }
+    .list-4 {
+        background: url("../images/video/nav-4-bg.png") no-repeat;
     }
 }
