@@ -89,12 +89,13 @@ if (!$('#index').length) {
 }
 
 //南国红豆两个子页面
-if ($('.opera-common').length) {
-    $('.opera-common').find('.list li').click(function () {
-        $('.opera-common').find('.list li').removeClass('active');
+var $operaCommon = $('.opera-common');
+if ($operaCommon.length) {
+    $operaCommon.find('.list li').click(function () {
+        $operaCommon.find('.list li').removeClass('active');
         $(this).addClass('active');
-        $('.opera-common').find('.content').stop().slideUp();
-        $('.opera-common').find('.content').eq($(this).index()).stop().slideDown();
+        $operaCommon.find('.content').stop().slideUp();
+        $operaCommon.find('.content').eq($(this).index()).stop().slideDown();
     })
 }
 
@@ -113,8 +114,9 @@ if ($('#history').length) {
 
     $bookMarkList.click(function () {
         if ($(this).parent().attr('onOff') === 'true') {
-            goLeftPage($(this).parent());
             setZIndex();
+            goLeftPage($(this).parent());
+
         } else {
             goRightPage($(this).parent());
             setZIndex();
@@ -161,12 +163,13 @@ if ($('#history').length) {
 
 //劲歌金曲
 if($('#music').length){
+    //3D盒子
     var $list = $('#list');
     var $listLi = $list.children('li');
     var $iZ = $(window).width()/2;
-    var iNow = 1;
+    var iNow = 3;
     var $btns = $('#btns').find('li');
-    $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
+    $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px');
     $(window).resize(function(){
         $iZ = $(window).width()/2;
         $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
@@ -201,8 +204,20 @@ if($('#music').length){
         }
     }
 
+    //天王天后切换
+    $peopleLi = $('#people-detail').find('li');
+    $peopleListLi = $('#people-list').find('li');
 
+    $peopleListLi.click(function(){
+        var _this = $(this);
+        $peopleListLi.removeClass('active');
+        _this.addClass('active');
 
+        $peopleLi.stop().animate({'opacity':'0'}, 400, function(){
+            $peopleLi.removeClass('active');
+            $peopleLi.eq(_this.index()).stop().animate({'opacity':'1'}, 800).addClass('active')
+        });
+    })
 
 }
 
