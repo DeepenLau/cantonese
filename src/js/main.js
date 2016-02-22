@@ -96,7 +96,12 @@ if ($operaCommon.length) {
         $(this).addClass('active');
         $operaCommon.find('.content').stop().slideUp();
         $operaCommon.find('.content').eq($(this).index()).stop().slideDown();
-    })
+    });
+    $('.content .text').slimscroll({
+        width: '360px',
+        height: '255px',
+        color: '#fff'
+    });
 }
 
 //细语倾诉
