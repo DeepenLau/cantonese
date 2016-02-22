@@ -114,8 +114,9 @@ if ($('#history').length) {
 
     $bookMarkList.click(function () {
         if ($(this).parent().attr('onOff') === 'true') {
-            setZIndex();
+
             goLeftPage($(this).parent());
+            setZIndex();
 
         } else {
             goRightPage($(this).parent());
@@ -159,6 +160,11 @@ if ($('#history').length) {
             }
         }
     }
+
+    $('.page').slimScroll({
+        width: 'auto', //可滚动区域宽度
+        height: '100%' //可滚动区域高度
+    })
 }
 
 //劲歌金曲
