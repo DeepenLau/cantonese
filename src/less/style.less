@@ -570,7 +570,6 @@
         width: 210px;
         height: 467px;
         background: #efe5d9;
-        overflow-y: auto;
         box-shadow: 5px 5px 30px;
         li {
             width: 100%;
@@ -604,6 +603,41 @@
             text-align: left;
             span {
                 font-size: 22px;
+            }
+        }
+    }
+    #music-player1 {
+        position: absolute;
+        bottom: 0;
+        width: 98%;
+        overflow: visible;
+    }
+    .aplayer-list {
+        position: absolute;
+        right: -210px;
+        top: -396px;
+        width: 200px;
+        height: 467px;
+        background: #fff;
+        max-height: none;
+        li {
+            border-bottom: 1px solid #000;
+            box-sizing: border-box;
+            cursor: pointer;
+            background: #fff;
+            color: @normalRed;
+            font-size: 14px;
+            height: auto;
+            padding: 10px 20px;
+            .aplayer-list-cur {
+                top: 15px;
+            }
+            &:hover,
+            &.active {
+                background: @normalRed;
+                span {
+                    color: #fff;
+                }
             }
         }
     }
@@ -739,7 +773,6 @@
         width: 210px;
         height: 438px;
         background: @normalRed;
-        overflow-y: auto;
         li {
             width: 100%;
             zoom: 1;
@@ -748,6 +781,14 @@
             text-align: center;
             box-sizing: border-box;
             padding-left: 20px;
+            cursor: pointer;
+            &.active,
+            &:hover {
+                background: @normalYellow;
+                p {
+                    color: @normalRed;
+                }
+            }
         }
         p {
             float: left;
@@ -815,7 +856,6 @@
         width: 210px;
         height: 438px;
         background: @normalRed;
-        overflow-y: auto;
         li {
             width: 100%;
             zoom: 1;
@@ -824,6 +864,13 @@
             text-align: center;
             box-sizing: border-box;
             padding-left: 20px;
+            &.active,
+            &:hover {
+                background: @normalYellow;
+                p {
+                    color: @normalRed;
+                }
+            }
         }
         p {
             float: left;

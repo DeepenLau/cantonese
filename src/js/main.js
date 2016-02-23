@@ -228,8 +228,136 @@ if($('#music').length){
             $peopleLi.removeClass('active');
             $peopleLi.eq(_this.index()).stop().animate({'opacity':'1'}, 800).addClass('active')
         });
-    })
+    });
 
+    var ap1 = new APlayer({
+        element: document.getElementById('music-player1'),
+        narrow: false,
+        autoplay: false,
+        showlrc: false,
+        theme: '#93312c',
+        music: [
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '人来人往',
+                author: '陈奕迅',
+                url: './music/陈奕迅 - 人来人往.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '吴哥窟',
+                author: '吴雨霏',
+                url: './music/吴雨霏 - 吴哥窟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            },
+            {
+                title: '恐高的鸟',
+                author: '大鹏',
+                url: './music/大鹏 - 恐高的鸟.mp3',
+                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+            }
+        ]
+    });
+    ap1.init();
+
+    //$('.aplayer-list').slimScroll({
+    //    width: '210px',
+    //    height: '467px',
+    //    overflow: 'visible',
+    //    position: 'absolute'
+    //});
+}
+
+//谈笑风生
+var $videoWrap = $('.video-wrap');
+if($videoWrap.length){
+    $('.video-list').slimScroll({
+        width: '210px',
+        height: '438px'
+    });
 }
 
 
