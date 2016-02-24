@@ -343,12 +343,16 @@ if($('#music').length){
     });
     ap1.init();
 
-    //$('.aplayer-list').slimScroll({
-    //    width: '210px',
-    //    height: '467px',
-    //    overflow: 'visible',
-    //    position: 'absolute'
-    //});
+    $('.aplayer-list').slimScroll({
+        width: '210px',
+        height: '467px'
+    });
+
+    $('.aplayer-list').parent().css({
+        'position': 'absolute',
+        'top': '-396px',
+        'right': '-220px'
+    })
 }
 
 //谈笑风生

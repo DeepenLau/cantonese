@@ -611,17 +611,37 @@
         bottom: 0;
         width: 98%;
         overflow: visible;
+        .aplayer-pic{
+            position: absolute;
+            width: 628px;
+            height: 467px;
+            top: -396px;
+            left: -5px;
+            z-index: -1;
+            .aplayer-pause{
+                width: 26px;
+                height: 26px;
+                border: 2px solid #fff;
+                bottom: 80px;
+                right: 10px;
+                .aplayer-icon-pause{
+                    top: 2px;
+                    left: 4px;
+                    font-size: 20px;
+                    line-height: 23px;
+                }
+            }
+        }
+        .aplayer-info{
+            margin-left:0;
+        }
     }
     .aplayer-list {
-        position: absolute;
-        right: -210px;
-        top: -396px;
         width: 200px;
         height: 467px;
         background: #fff;
         max-height: none;
         li {
-            border-bottom: 1px solid #000;
             box-sizing: border-box;
             cursor: pointer;
             background: #fff;
@@ -635,7 +655,17 @@
             &:hover,
             &.active {
                 background: @normalRed;
+                border-top: 1px solid @normalRed;
                 span {
+                    color: #fff;
+                }
+            }
+            &.aplayer-list-light{
+                background: @normalRed;
+                color: #fff;
+                .aplayer-list-index,
+                .aplayer-list-titel,
+                .aplayer-list-author{
                     color: #fff;
                 }
             }
