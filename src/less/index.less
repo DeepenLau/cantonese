@@ -1,61 +1,4 @@
-//样式重置
-body, h1, h2, h3, h4, h5, h6, ul, li {
-    padding: 0;
-    margin: 0;
-}
-
-html {
-    width: 100%;
-    height: 100%;
-}
-
-body {
-    font-family: "Hiragino Sans GB", "Microsoft Yahei", SimHei, arial, sans-serif;
-    background: url("../images/bg.jpg") no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    border: 0;
-    vertical-align: top;
-    -webkit-user-drag: none;
-    user-select: none;
-}
-
-input,
-button,
-textarea {
-    outline: none;
-}
-
-//共用样式
-.container {
-    width: 1000px;
-    min-width: 1000px;
-    margin: 0 auto;
-}
-
-.clearfix {
-    zoom: 1;
-    &:after {
-        content: "";
-        display: block;
-        clear: both;
-    }
-}
-
-#header {
+#index-header {
     .nav {
         text-align: center;
         position: fixed;
@@ -112,7 +55,7 @@ textarea {
     }
 }
 
-#footer {
+#index-footer {
     text-align: center;
     position: fixed;
     bottom: 0;
@@ -122,24 +65,4 @@ textarea {
     font-size: 12px;
     line-height: 35px;
     color: #fff;
-}
-
-//首页
-#index {
-    position: relative;
-    height: 100%;
-
-    #body-bg-wrap {
-        width: 100%;
-        height: 100%;
-        .bamboo-2 {
-            z-index: -1;
-        }
-        .title {
-            z-index: 2;
-        }
-        .cloud-2{
-            z-index:2;
-        }
-    }
 }

@@ -1,7 +1,32 @@
+@import "_reset";
 @import "_common";
+@import "index";
 @normalRed: #93312c;
 @normalYellow: #e9cea6;
 
+//首页
+#index {
+    position: relative;
+    height: 100%;
+    #body-bg-wrap {
+        width: 100%;
+        height: 100%;
+        .bamboo-2 {
+            z-index: -1;
+        }
+        .title {
+            z-index: 2;
+        }
+        .cloud-2{
+            z-index:2;
+        }
+        .dragon {
+            img {
+                transform: rotate(0);
+            }
+        }
+    }
+}
 //细语倾诉
 #history {
     #book {

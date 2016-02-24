@@ -25,6 +25,7 @@ var extraPages = {
     '栋笃笑': 'video/video-3.html',
     '舌尖上的粤语': 'video/video-4.html'
 };
+
 var plugins = [
     new ExtractTextPlugin(outputStyle)
 ];
@@ -53,23 +54,13 @@ for (var item in extraPages) {
     }
 }
 
-if (process.env.NODE_ENV === 'production') {
-    plugins.push(
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.DedupePlugin(),
-        new webpack.BannerPlugin(banner)
-    );
-}
+plugins.push(
+    new HtmlWebpackPlugin({
+        title: '首页',
+        filename: 'index.html',
+        template: path.join(__dirname, 'src/template/templateIndex.html')
+    })
+)
 
 module.exports = {
     entry: './src/in.js',
@@ -81,10 +72,10 @@ module.exports = {
         loaders: [
             {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer')},
             {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
-            {test: /\.mp3$/, loader: 'file?name=/media/[name].[ext]'},
-            {test: /\.mp4$/, loader: 'file?name=/media/[name].[ext]'},
+            {test: /\.mp3$/, loader: 'file?name=/media/music/[name].[ext]'},
+            {test: /\.mp4$/, loader: 'file?name=/media/video/[name].[ext]'},
             {test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]'},
-            {test: /\.(png|jpg|gif)$/, loader: 'file?name=/images/[name].[ext]'},
+            {test: /\.(png|jpg|gif)$/, loader: 'file?name=../images/[name].[ext]'}
         ]
     },
     externals: {

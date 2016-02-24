@@ -1,3 +1,18 @@
+var cantonese = {
+    initNavFocus: function(nav){
+        if($.isArray(nav)){
+            $.each(nav, function(i, n){
+                if(~window.location.href.indexOf(n)){
+                    $('#nav-' + n).addClass('active');
+                }
+            })
+        }
+    }
+};
+
+var arr_nav = ['history', 'opera', 'music', 'video'];
+cantonese.initNavFocus(arr_nav);
+
 var $bodyBgWrap = $('#body-bg-wrap');
 
 $bodyBgWrap.parallax({
@@ -12,7 +27,8 @@ $bodyBgWrap.parallax({
 });
 
 //首页
-if ($('#index').length) {
+var $index = $('#index');
+if ($index.length) {
     $('.nav li').parallax({
         scalarX: 10,
         scalarY: 10
@@ -59,7 +75,7 @@ if ($('#index').length) {
 }
 
 //除首页外调整背景位置
-if (!$('#index').length) {
+if (!$index.length) {
     res();
     function res() {
         $bodyBgWrap.find('.bamboo-1').css({
@@ -240,103 +256,103 @@ if($('#music').length){
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '人来人往',
                 author: '陈奕迅',
-                url: './music/陈奕迅 - 人来人往.mp3',
+                url: '/../../media/music/陈奕迅 - 人来人往.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '吴哥窟',
                 author: '吴雨霏',
-                url: './music/吴雨霏 - 吴哥窟.mp3',
+                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             },
             {
                 title: '恐高的鸟',
                 author: '大鹏',
-                url: './music/大鹏 - 恐高的鸟.mp3',
+                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
                 pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
             }
         ]
@@ -363,6 +379,7 @@ if($videoWrap.length){
         width: '210px',
         height: '438px'
     });
+    require('./tagsCloud.js');
 }
 
 
