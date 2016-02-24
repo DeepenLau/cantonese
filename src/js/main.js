@@ -343,12 +343,13 @@ if($('#music').length){
     });
     ap1.init();
 
-    $('.aplayer-list').slimScroll({
+    var $aplayerList = $('.aplayer-list');
+    $aplayerList.slimScroll({
         width: '210px',
         height: '467px'
     });
 
-    $('.aplayer-list').parent().css({
+    $aplayerList.parent().css({
         'position': 'absolute',
         'top': '-396px',
         'right': '-220px'
