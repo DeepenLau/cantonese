@@ -8,7 +8,6 @@ var outputStyle = 'css/style.css';
 
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var pkg = require('./package.json');
 
 var pages = {
     '细语倾诉': 'history/',
@@ -31,7 +30,7 @@ var plugins = [
 ];
 
 for (var item in pages) {
-    if(pages.hasOwnProperty(item)){
+    if (pages.hasOwnProperty(item)) {
         plugins.push(
             new HtmlWebpackPlugin({
                 title: item,
@@ -43,7 +42,7 @@ for (var item in pages) {
 }
 
 for (var item in extraPages) {
-    if(extraPages.hasOwnProperty(item)){
+    if (extraPages.hasOwnProperty(item)) {
         plugins.push(
             new HtmlWebpackPlugin({
                 title: item,
@@ -75,8 +74,18 @@ module.exports = {
             {test: /\.mp3$/, loader: 'file?name=/media/music/[name].[ext]'},
             {test: /\.mp4$/, loader: 'file?name=/media/video/[name].[ext]'},
             {test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]'},
-            {test: /\.(png|jpg|gif)$/, loader: 'file?name=../images/[name].[ext]'}
+            {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file?name=[name].[ext]!img?minimize'}
         ]
+    },
+    imagemin: {
+        pngquant: {
+            floyd: 0.5,
+            speed: 5
+        },
+        jpegtran: {
+            progressive: true,
+            arithmetic: false
+        }
     },
     externals: {
         'jquery': '$'

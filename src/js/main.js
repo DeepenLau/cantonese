@@ -1,8 +1,8 @@
 var cantonese = {
-    initNavFocus: function(nav){
-        if($.isArray(nav)){
-            $.each(nav, function(i, n){
-                if(~window.location.href.indexOf(n)){
+    initNavFocus: function (nav) {
+        if ($.isArray(nav)) {
+            $.each(nav, function (i, n) {
+                if (~window.location.href.indexOf(n)) {
                     $('#nav-' + n).addClass('active');
                 }
             })
@@ -189,21 +189,21 @@ if ($('#history').length) {
 }
 
 //劲歌金曲
-if($('#music').length){
+if ($('#music').length) {
     //3D盒子
     var $list = $('#list');
     var $listLi = $list.children('li');
-    var $iZ = $(window).width()/2;
-    var iNow = 3;
+    var $iZ = $(window).width() / 2;
+    var iNow = 0;
     var $btns = $('#btns').find('li');
     $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px');
-    $(window).resize(function(){
-        $iZ = $(window).width()/2;
+    $(window).resize(function () {
+        $iZ = $(window).width() / 2;
         $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px')
     });
 
-    $btns.click(function(){
-        if(iNow == $(this).index()){
+    $btns.click(function () {
+        if (iNow == $(this).index()) {
             return;
         }
         $btns.eq(iNow).removeClass();
@@ -212,18 +212,18 @@ if($('#music').length){
         $btns.eq(iNow).addClass('active');
     });
 
-    function tab(iOld, iNow){
+    function tab(iOld, iNow) {
         $list.css('transition', '.5s');
         $list.on('webkitTransitionEnd', end);
-        if(iOld > iNow){
+        if (iOld > iNow) {
             $listLi.eq(iNow).addClass('prev');
             $list.css('transform', 'rotateY(-90deg)');
-        }else{
+        } else {
             $listLi.eq(iNow).addClass('next');
             $list.css('transform', 'rotateY(90deg)');
         }
 
-        function end(){
+        function end() {
             $listLi.eq(iOld).removeClass('prev next active');
             $list.css('transition', 'none');
             $listLi.eq(iNow).addClass('active');
@@ -235,14 +235,14 @@ if($('#music').length){
     $peopleLi = $('#people-detail').find('li');
     $peopleListLi = $('#people-list').find('li');
 
-    $peopleListLi.click(function(){
+    $peopleListLi.click(function () {
         var _this = $(this);
         $peopleListLi.removeClass('active');
         _this.addClass('active');
 
-        $peopleLi.stop().animate({'opacity':'0'}, 400, function(){
+        $peopleLi.stop().animate({'opacity': '0'}, 400, function () {
             $peopleLi.removeClass('active');
-            $peopleLi.eq(_this.index()).stop().animate({'opacity':'1'}, 800).addClass('active')
+            $peopleLi.eq(_this.index()).stop().animate({'opacity': '1'}, 800).addClass('active')
         });
     });
 
@@ -374,12 +374,14 @@ if($('#music').length){
 
 //谈笑风生
 var $videoWrap = $('.video-wrap');
-if($videoWrap.length){
+if ($videoWrap.length) {
     $('.video-list').slimScroll({
         width: '210px',
         height: '438px'
     });
-    require('./tagsCloud.js');
+    if ($('#video-2').length) {
+        require('./tagsCloud.js');
+    }
 }
 
 
