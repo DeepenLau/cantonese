@@ -1,6 +1,7 @@
 @import "_reset";
 @import "_common";
 @import "index";
+
 @normalRed: #93312c;
 @normalYellow: #e9cea6;
 
@@ -17,8 +18,8 @@
         .title {
             z-index: 2;
         }
-        .cloud-2{
-            z-index:2;
+        .cloud-2 {
+            z-index: 2;
         }
         .dragon {
             img {
@@ -27,8 +28,10 @@
         }
     }
 }
+
 //细语倾诉
 #history {
+    min-height: 650px;
     #book {
         position: relative;
         transform-style: preserve-3d;
@@ -502,7 +505,7 @@
             margin: 0 15px;
             cursor: pointer;
             transition: 1s;
-            &:hover{
+            &:hover {
                 transform: rotateY(360deg);
             }
         }
@@ -528,11 +531,13 @@
         }
         .text {
             width: 534px;
-            min-height: 270px;
+            min-height: 370px;
             background: #fff;
             border-radius: 20px;
             position: relative;
             box-shadow: 5px 5px 30px;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .arrow {
             width: 30px;
@@ -645,30 +650,40 @@
         bottom: 0;
         width: 98%;
         overflow: visible;
-        .aplayer-pic{
+        .aplayer-pic {
             position: absolute;
             width: 628px;
             height: 467px;
             top: -396px;
             left: -5px;
             z-index: -1;
-            .aplayer-pause{
+            .aplayer-play{
+                bottom: 80px;
+                left: 10px;
+                margin:0;
+                right:auto;
+            }
+            .aplayer-pause {
                 width: 26px;
                 height: 26px;
                 border: 2px solid #fff;
                 bottom: 80px;
                 right: 10px;
-                .aplayer-icon-pause{
+                .aplayer-icon-pause {
                     top: 2px;
-                    left: 4px;
+                    left: 3px;
                     font-size: 20px;
                     line-height: 23px;
                 }
             }
         }
-        .aplayer-info{
-            margin-left:0;
+        .aplayer-info {
+            margin-left: 0;
+            background: rgba(0,0,0,0.5);
         }
+    }
+    .aplayer-music{
+        color:#fff;
     }
     .aplayer-list {
         width: 200px;
@@ -694,12 +709,12 @@
                     color: #fff;
                 }
             }
-            &.aplayer-list-light{
+            &.aplayer-list-light {
                 background: @normalRed;
                 color: #fff;
                 .aplayer-list-index,
                 .aplayer-list-titel,
-                .aplayer-list-author{
+                .aplayer-list-author {
                     color: #fff;
                 }
             }
@@ -757,6 +772,7 @@
 
 //谈笑风生二级导航
 .video-wrap {
+    min-height: 650px;
     .video-nav-list {
         text-align: center;
         li {

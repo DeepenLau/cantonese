@@ -74,7 +74,7 @@ module.exports = {
             {test: /\.mp3$/, loader: 'file?name=/media/music/[name].[ext]'},
             {test: /\.mp4$/, loader: 'file?name=/media/video/[name].[ext]'},
             {test: /\.(woff2|woff|svg|ttf|eot)([\?]?.*)$/, loader: 'file?name=[path][name].[ext]'},
-            {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file?name=[name].[ext]!img?minimize'}
+            {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file?name=/images/[name].[ext]'}
         ]
     },
     imagemin: {
