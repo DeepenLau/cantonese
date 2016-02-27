@@ -260,104 +260,62 @@ if ($('#music').length) {
             {
                 title: '千千阙歌',
                 author: '陈慧娴',
-                url: '/media/music/吴雨霏 - 吴哥窟.mp3',
+                url: '/media/music/陈慧娴 - 千千阙歌.mp3',
                 pic: '../images/music-qianqianquege.jpg'
             },
             {
-                title: '卢冠廷',
-                author: '一生所爱',
-                url: '../media/music/大鹏 - 恐高的鸟.mp3',
+                title: '一生所爱',
+                author: '卢冠廷',
+                url: '../media/music/卢冠廷 - 一生所爱.mp3',
                 pic: '../images/music-yishengsuoai.jpg'
             },
             {
                 title: '一生何求',
                 author: '陈百强',
-                url: '../media/music/陈奕迅 - 人来人往.mp3',
+                url: '../media/music/陈百强 - 一生何求.mp3',
                 pic: '../images/music-yishengheqiu.jpg'
             },
             {
                 title: '容易受伤的女人',
                 author: '王菲',
-                url: '../media/music/吴雨霏 - 吴哥窟.mp3',
+                url: '../media/music/王菲 - 容易受伤的女人.mp3',
                 pic: '../images/music-rongyishoushangdenvren.jpg'
             },
             {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '一起走过的日子',
+                author: '刘德华',
+                url: '../media/music/刘德华 - 一起走过的日子.mp3',
+                pic: '../images/music-yiqizouguoderizi.jpg'
             },
             {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '今夜你会不会来',
+                author: '黎明',
+                url: '../media/music/黎明 - 今夜你会不会来.mp3',
+                pic: '../images/music-jinyenihuibuhuilai.jpg'
             },
             {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '晚秋',
+                author: '黄凯芹',
+                url: '../media/music/黄凯芹 - 晚秋.mp3',
+                pic: '../images/music-wanqiu.jpg'
             },
             {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '几分伤心几分痴',
+                author: '王杰',
+                url: '../../media/music/王杰 - 几分伤心几分痴.mp3',
+                pic: '../images/music-jifenshangxinjifenchi.jpg'
             },
             {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '笑看风云',
+                author: '郑少秋',
+                url: '../media/music/郑少秋 - 笑看风云.mp3',
+                pic: '../images/music-xiaokanfengyun.jpg'
             },
             {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '吴哥窟',
-                author: '吴雨霏',
-                url: '/../../media/music/吴雨霏 - 吴哥窟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
-            },
-            {
-                title: '恐高的鸟',
-                author: '大鹏',
-                url: '/../../media/music/大鹏 - 恐高的鸟.mp3',
-                pic: 'http://7xq131.com1.z0.glb.clouddn.com/Preparation.jpg'
+                title: '人生何处不相逢',
+                author: '陈慧娴',
+                url: '../media/music/陈慧娴 - 人生何处不相逢.mp3',
+                pic: '../images/music-renshenghechubuxiangfeng.jpg'
             }
         ]
     });
