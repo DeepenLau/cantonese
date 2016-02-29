@@ -231,6 +231,33 @@ if ($('#music').length) {
         }
     }
 
+    //寻根问底
+    $subList1 = $('.sub-list-1');
+    $subList1.find('.text').click(function(){
+       $(this).css({
+           'zIndex': '10',
+           'width': '400px',
+           'left': '0'
+       });
+    });
+    $subList1.find('.text').mouseleave(function(){
+        $(this).css({
+            'zIndex': '1',
+            'width': '190px',
+            'left': '100px'
+        });
+    });
+    $subList1.find('.text div').slimScroll({
+        width: 'auto',
+        height: '475px'
+    });
+    //$('.slimScrollDiv').css({
+    //    'position': 'initial'
+    //});
+    //$('.slimScrollBar').css({
+    //    'display': 'none'
+    //});
+
     //天王天后切换
     $peopleLi = $('#people-detail').find('li');
     $peopleListLi = $('#people-list').find('li');
@@ -250,6 +277,7 @@ if ($('#music').length) {
         height: '370px'
     });
 
+    //经典名曲列表
     var ap1 = new APlayer({
         element: document.getElementById('music-player1'),
         narrow: false,
