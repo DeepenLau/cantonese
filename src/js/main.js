@@ -251,12 +251,6 @@ if ($('#music').length) {
         width: 'auto',
         height: '475px'
     });
-    //$('.slimScrollDiv').css({
-    //    'position': 'initial'
-    //});
-    //$('.slimScrollBar').css({
-    //    'display': 'none'
-    //});
 
     //天王天后切换
     $peopleLi = $('#people-detail').find('li');
@@ -364,13 +358,44 @@ if ($('#music').length) {
 
 //谈笑风生
 var $videoWrap = $('.video-wrap');
+
 if ($videoWrap.length) {
-    $('.video-list').slimScroll({
+    var $videoList = $('.video-list');
+    var $videoJs = $('#video-js');
+
+    $videoList.slimScroll({
         width: '210px',
         height: '438px'
     });
     if ($('#video-2').length) {
         require('./tagsCloud.js');
+    }
+
+    //盏鬼广州话视频地址
+    var urlList1 = [
+        '../../media/video/01.mp4',
+        '../../media/video/02.mp4',
+        '../../media/video/03.mp4',
+        '../../media/video/04.mp4',
+        '../../media/video/05.mp4',
+        '../../media/video/06.mp4',
+        '../../media/video/07.mp4',
+        '../../media/video/08.mp4'
+    ];
+
+    //盏鬼广州话,栋笃笑视频播放列表
+    if($('#video-1').length || $('#video-3').length){
+        $videoList.find('li').click(function(){
+            $videoList.find('li').removeClass('active');
+            $(this).addClass('active');
+            $videoJs.find('source').eq(0).attr('src', urlList1[$(this).index()]);
+            $videoJs.find('source').eq(0).parent().attr('src', urlList1[$(this).index()]);
+            var myPlayer = videojs('video-js');
+            videojs("video-js").ready(function(){
+                var myPlayer = this;
+                myPlayer.play();
+            });
+        })
     }
 }
 
