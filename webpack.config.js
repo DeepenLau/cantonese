@@ -59,7 +59,7 @@ plugins.push(
         filename: 'index.html',
         template: path.join(__dirname, 'src/template/templateIndex.html')
     })
-)
+);
 
 module.exports = {
     entry: './src/in.js',

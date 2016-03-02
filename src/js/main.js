@@ -362,6 +362,8 @@ var $videoWrap = $('.video-wrap');
 if ($videoWrap.length) {
     var $videoList = $('.video-list');
     var $videoJs = $('#video-js');
+    var $video1 = $('#video-1');
+    var $video3 = $('#video-3');
 
     $videoList.slimScroll({
         width: '210px',
@@ -383,20 +385,56 @@ if ($videoWrap.length) {
         '../../media/video/08.mp4'
     ];
 
+    //栋笃笑视频地址
+    var urlList2 = [
+        'http://player.youku.com/player.php/sid/XOTM3MTMwNjE2/v.swf',//2012洗燥
+        'http://player.youku.com/player.php/sid/XNTc0NDg5NjQw/v.swf',//2009哗众取宠
+        'http://player.youku.com/player.php/sid/XODE3NTQ3NjI0/v.swf',//2006儿童不宜
+        'http://player.youku.com/player.php/sid/XNTc0MjcyNTY0/v.swf',//2007越大镬越快乐
+        'http://player.youku.com/player.php/sid/XNTAzNTQ1ODY4/v.swf'//2003冇碳用
+    ];
+
     //盏鬼广州话,栋笃笑视频播放列表
-    if($('#video-1').length || $('#video-3').length){
+    if($video1.length || $video3.length){
         $videoList.find('li').click(function(){
             $videoList.find('li').removeClass('active');
             $(this).addClass('active');
-            $videoJs.find('source').eq(0).attr('src', urlList1[$(this).index()]);
-            $videoJs.find('source').eq(0).parent().attr('src', urlList1[$(this).index()]);
-            var myPlayer = videojs('video-js');
-            videojs("video-js").ready(function(){
-                var myPlayer = this;
-                myPlayer.play();
-            });
+
+            if($video1.length){
+                $videoJs.find('source').eq(0).attr('src', urlList1[$(this).index()]);
+                $videoJs.find('source').eq(0).parent().attr('src', urlList1[$(this).index()]);
+                var myPlayer = videojs('video-js');
+                videojs("video-js").ready(function(){
+                    var myPlayer = this;
+                    myPlayer.play();
+                });
+            }
+
+            if($video3.length){
+                $('.video-player').find('embed').remove();
+                $('.video-player').html('<embed src="'+ urlList2[$(this).index()] +'" allowFullScreen="true" quality="high" width="694" height="438" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>');
+                //$videoJs.find('embed').eq(0).parent().attr('src', urlList1[$(this).index()]);
+            }
+
+
         })
     }
+
+    if($video3.length){
+        $('#ddx-info').click(function (){
+            $('.mask').stop().slideDown();
+        });
+
+        $('.mask').click(function (){
+            $(this).stop().slideUp();
+        })
+    }
+
+
+    $('.mask').find('.text > div').slimScroll({
+        width: '100%',
+        height: '550px'
+    });
 }
 
 
