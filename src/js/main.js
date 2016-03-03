@@ -122,7 +122,7 @@ if ($operaCommon.length) {
 
 //细语倾诉
 if ($('#history').length) {
-    var $book = $('#book')
+    var $book = $('#book');
     var $bookMarkList = $book.find('.bookmark');
     var $bookLi = $book.find('li');
 
@@ -135,13 +135,13 @@ if ($('#history').length) {
 
     $bookMarkList.click(function () {
         if ($(this).parent().attr('onOff') === 'true') {
-
-            goLeftPage($(this).parent());
             setZIndex();
+            goLeftPage($(this).parent());
 
         } else {
-            goRightPage($(this).parent());
             setZIndex();
+            goRightPage($(this).parent());
+
         }
     });
 
@@ -164,20 +164,11 @@ if ($('#history').length) {
 
     //动态设置z-index
     function setZIndex() {
-        var bool = true;
-        var n = 0;
-        var len = 0;
         for (var i = 0; i < $bookLi.length; i++) {
             if ($bookLi.eq(i).attr('onOff') == 'false') {
                 $bookLi.eq(i).css('zIndex', $bookLi.eq(i).index() + 1);
             } else {
-                if (bool) {
-                    bool = false;
-                    n = $bookLi.eq(i).index();
-                    len = $bookLi.length;
-                }
-                len--;
-                $bookLi.eq(i).css('zIndex', len + 1);
+                $bookLi.eq(i).css('zIndex', $bookLi.length - $bookLi.eq(i).index());
             }
         }
     }
@@ -194,7 +185,7 @@ if ($('#music').length) {
     var $list = $('#list');
     var $listLi = $list.children('li');
     var $iZ = $(window).width() / 2;
-    var iNow = 0;
+    var iNow = 3;
     var $btns = $('#btns').find('li');
     $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px');
     $(window).resize(function () {
@@ -214,7 +205,7 @@ if ($('#music').length) {
 
     function tab(iOld, iNow) {
         $list.css('transition', '.5s');
-        $list.on('webkitTransitionEnd', end);
+        $list.one('webkitTransitionEnd', end);
         if (iOld > iNow) {
             $listLi.eq(iNow).addClass('prev');
             $list.css('transform', 'rotateY(-90deg)');
@@ -233,14 +224,14 @@ if ($('#music').length) {
 
     //寻根问底
     $subList1 = $('.sub-list-1');
-    $subList1.find('.text').click(function(){
-       $(this).css({
-           'zIndex': '10',
-           'width': '400px',
-           'left': '0'
-       });
+    $subList1.find('.text').click(function () {
+        $(this).css({
+            'zIndex': '10',
+            'width': '400px',
+            'left': '0'
+        });
     });
-    $subList1.find('.text').mouseleave(function(){
+    $subList1.find('.text').mouseleave(function () {
         $(this).css({
             'zIndex': '1',
             'width': '190px',
@@ -354,6 +345,109 @@ if ($('#music').length) {
         'top': '-396px',
         'right': '-220px'
     })
+
+    //流行歌曲
+    var $song = $('#popular-music-btn');
+    var audioContext,analyser,sourceNode,freqArray,nowbtn,num,k,m,n;
+    var $btns = $song.find('div');
+    var abtns = document.getElementById('popular-song').getElementsByTagName('div');
+    var $stop = $('.stop');
+    var audio = new Audio();
+    var btnLen = 5;
+    var musicList = [
+        '../media/music/陈慧娴 - 千千阙歌.mp3',
+        '../media/music/卢冠廷 - 一生所爱.mp3',
+        '../media/music/陈百强 - 一生何求.mp3',
+        '../media/music/王菲 - 容易受伤的女人.mp3',
+        '../media/music/刘德华 - 一起走过的日子.mp3'
+    ];
+
+    $stop.click(function (){
+        init();
+        audio.pause();
+    });
+
+    $btns.click(function () {
+        init();
+        audio.src = musicList[$(this).index()];
+        play();
+        nowbtn = $(this);
+    });
+
+    function init(){
+        audio.pause();
+        audio = null;
+        audio = new Audio();
+    }
+
+    //监听音频加载完成出发的事件
+    function play(){
+        audio.addEventListener('canplay', function (e){
+            analyser = sourceNode = null;
+            setup();
+        }, false);
+    }
+
+    function setup(){
+        // 为了得到音频数据创建的对象
+        audioContext = audioContext || new AudioContext();
+        // 调用音频解码器
+        analyser = (analyser || audioContext.createAnalyser());
+        //
+        sourceNode = audioContext.createMediaElementSource(audio);
+        //
+        sourceNode.connect(analyser);
+        sourceNode.connect(audioContext.destination);
+
+        audio.play();
+
+        update();
+    }
+
+    function update(){
+        //audio.paused  设置或返回音频/视频是否暂停
+        //audio.currentTime 设置或返回音频/视频中的当前播放位置（以秒计）
+        //audio.pause();
+        //得到的音频是一个二进制的，需要，解析数据
+        freqArray = new Uint8Array(analyser.frequencyBinCount);
+        //得到数组
+        analyser.getByteFrequencyData(freqArray);
+
+
+        fn(freqArray);
+
+        if(audio.paused){
+            freqArray = null;
+            for( var i = 0; i < btnLen; i++ ){
+                $btns.eq(i).attr('style', '');
+            }
+        }else{
+            requestAnimationFrame(update);
+        }
+    }
+
+    function fn(arr){
+        var step = Math.round(arr.length / 8);
+        for( var i = 0; i < btnLen; i++ ){
+            num = arr[i * step];
+            k = (num) / 200 * 100;
+            m = 100 - k;
+            n = (m-30)>0?(m-30):0;
+            //abtns[i].style.cssText = "-webkit-transform:(0," + n + "%,0);transform:translate3d(0," + n +"%,0)";
+            //$btns.eq(i).css({
+            //    'transform': 'translate3d(0,'+ n +'%,0)'
+            //});
+            if(i==0){
+                //nowMusic.style.background = 'rgb('+ num +','+ num +','+ num +')';
+                //nowbtn.style.webkitTransform = 'translateY('+ -m/2 +'px)';
+                //nowbtn.style.webkitTransform = 'translateY(-50px) scale('+ (2-m/80) +','+ (2-m/80) +')'
+                nowbtn.css({
+                    'webkitTransform': 'scale('+ (2-m/80) +','+ (2-m/80) +')',
+                    'transform': 'scale('+ (2-m/80) +','+ (2-m/80) +')'
+                })
+            }
+        }
+    }
 }
 
 //谈笑风生
@@ -388,6 +482,7 @@ if ($videoWrap.length) {
     //栋笃笑视频地址
     var urlList2 = [
         'http://player.youku.com/player.php/sid/XOTM3MTMwNjE2/v.swf',//2012洗燥
+        'http://player.youku.com/player.php/sid/XNjUwMDM4OTA0/v.swf',//2010娱乐圈血肉史2
         'http://player.youku.com/player.php/sid/XNTc0NDg5NjQw/v.swf',//2009哗众取宠
         'http://player.youku.com/player.php/sid/XODE3NTQ3NjI0/v.swf',//2006儿童不宜
         'http://player.youku.com/player.php/sid/XNTc0MjcyNTY0/v.swf',//2007越大镬越快乐
@@ -395,37 +490,35 @@ if ($videoWrap.length) {
     ];
 
     //盏鬼广州话,栋笃笑视频播放列表
-    if($video1.length || $video3.length){
-        $videoList.find('li').click(function(){
+    if ($video1.length || $video3.length) {
+        $videoList.find('li').click(function () {
             $videoList.find('li').removeClass('active');
             $(this).addClass('active');
 
-            if($video1.length){
+            if ($video1.length) {
                 $videoJs.find('source').eq(0).attr('src', urlList1[$(this).index()]);
                 $videoJs.find('source').eq(0).parent().attr('src', urlList1[$(this).index()]);
                 var myPlayer = videojs('video-js');
-                videojs("video-js").ready(function(){
+                videojs("video-js").ready(function () {
                     var myPlayer = this;
                     myPlayer.play();
                 });
             }
 
-            if($video3.length){
-                $('.video-player').find('embed').remove();
-                $('.video-player').html('<embed src="'+ urlList2[$(this).index()] +'" allowFullScreen="true" quality="high" width="694" height="438" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>');
+            if ($video3.length) {
+                $('embed').remove();
+                $('.video-player').html('<embed src="' + urlList2[$(this).index()] + '" allowFullScreen="true" quality="high" width="694" height="438" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>');
                 //$videoJs.find('embed').eq(0).parent().attr('src', urlList1[$(this).index()]);
             }
-
-
         })
     }
 
-    if($video3.length){
-        $('#ddx-info').click(function (){
+    if ($video3.length) {
+        $('#ddx-info').click(function () {
             $('.mask').stop().slideDown();
         });
 
-        $('.mask').click(function (){
+        $('.mask').click(function () {
             $(this).stop().slideUp();
         })
     }
