@@ -135,13 +135,12 @@ if ($('#history').length) {
 
     $bookMarkList.click(function () {
         if ($(this).parent().attr('onOff') === 'true') {
-            setZIndex();
             goLeftPage($(this).parent());
+            setZIndex();
 
         } else {
-            setZIndex();
             goRightPage($(this).parent());
-
+            setZIndex();
         }
     });
 
@@ -151,7 +150,6 @@ if ($('#history').length) {
         obj.prevAll().attr('onOff', false);
         obj.css('transform', 'rotateY(-180deg)');
         obj.prevAll().css('transform', 'rotateY(-180deg)');
-
     }
 
     //向右翻页
@@ -273,7 +271,7 @@ if ($('#music').length) {
             {
                 title: '千千阙歌',
                 author: '陈慧娴',
-                url: '/media/music/陈慧娴 - 千千阙歌.mp3',
+                url: '../../media/music/陈慧娴 - 千千阙歌.mp3',
                 pic: '../images/music-qianqianquege.jpg'
             },
             {
@@ -349,7 +347,7 @@ if ($('#music').length) {
     //流行歌曲
     var $song = $('#popular-music-btn');
     var audioContext,analyser,sourceNode,freqArray,nowbtn,num,k,m,n;
-    var $btns = $song.find('div');
+    var $btnSongs = $song.find('div');
     var abtns = document.getElementById('popular-song').getElementsByTagName('div');
     var $stop = $('.stop');
     var audio = new Audio();
@@ -367,7 +365,7 @@ if ($('#music').length) {
         audio.pause();
     });
 
-    $btns.click(function () {
+    $btnSongs.click(function () {
         init();
         audio.src = musicList[$(this).index()];
         play();
@@ -419,7 +417,7 @@ if ($('#music').length) {
         if(audio.paused){
             freqArray = null;
             for( var i = 0; i < btnLen; i++ ){
-                $btns.eq(i).attr('style', '');
+                $btnSongs.eq(i).attr('style', '');
             }
         }else{
             requestAnimationFrame(update);
@@ -434,7 +432,7 @@ if ($('#music').length) {
             m = 100 - k;
             n = (m-30)>0?(m-30):0;
             //abtns[i].style.cssText = "-webkit-transform:(0," + n + "%,0);transform:translate3d(0," + n +"%,0)";
-            //$btns.eq(i).css({
+            //$btnSongs.eq(i).css({
             //    'transform': 'translate3d(0,'+ n +'%,0)'
             //});
             if(i==0){
@@ -469,14 +467,14 @@ if ($videoWrap.length) {
 
     //盏鬼广州话视频地址
     var urlList1 = [
-        '../../media/video/01.mp4',
-        '../../media/video/02.mp4',
-        '../../media/video/03.mp4',
-        '../../media/video/04.mp4',
-        '../../media/video/05.mp4',
-        '../../media/video/06.mp4',
-        '../../media/video/07.mp4',
-        '../../media/video/08.mp4'
+        '../media/video/01.mp4',
+        '../media/video/02.mp4',
+        '../media/video/03.mp4',
+        '../media/video/04.mp4',
+        '../media/video/05.mp4',
+        '../media/video/06.mp4',
+        '../media/video/07.mp4',
+        '../media/video/08.mp4'
     ];
 
     //栋笃笑视频地址
