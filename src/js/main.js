@@ -1,3 +1,9 @@
+var $ = jQuery = require('jquery');
+var parallax = require('parallax/deploy/jquery.parallax.min.js');
+var slimScroll = require('jquery-slimscroll/jquery.slimscroll.min.js');
+var APlayer = require('aplayer');
+var video = require('videojs');
+
 var cantonese = {
     initNavFocus: function (nav) {
         if ($.isArray(nav)) {
@@ -113,7 +119,7 @@ if ($operaCommon.length) {
         $operaCommon.find('.content').stop().slideUp();
         $operaCommon.find('.content').eq($(this).index()).stop().slideDown();
     });
-    $('.content .text').slimscroll({
+    $('.content .text').slimScroll({
         width: '360px',
         height: '255px',
         color: '#fff'
