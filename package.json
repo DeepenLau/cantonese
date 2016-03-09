@@ -29,7 +29,7 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --quiet --colors --content-base=dist/ --host=0.0.0.0",
-    "build": "webpack -d -colors --progress",
+    "build": "webpack -d -p -colors --progress",
     "watch": "webpack -w -colors --progress"
   },
   "dependencies": {
