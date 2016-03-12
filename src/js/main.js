@@ -179,8 +179,17 @@ if ($('#history').length) {
 
     $('.page').slimScroll({
         width: 'auto', //可滚动区域宽度
-        height: '100%' //可滚动区域高度
-    })
+        height: '100%', //可滚动区域高度
+        size: '4px',
+        distance: '-10px'
+    });
+    $('.slimScrollDiv').css({
+        'overflow': 'visible'
+    });
+    $('.opposite').find('.slimScrollBar').add('.opposite .slimScrollRail').css({
+        'left': '-10px',
+        'right': 'auto'
+    });
 }
 
 //劲歌金曲
@@ -189,7 +198,7 @@ if ($('#music').length) {
     var $list = $('#list');
     var $listLi = $list.children('li');
     var $iZ = $(window).width() / 2;
-    var iNow = 3;
+    var iNow = 0;
     var $btns = $('#btns').find('li');
     $list.css('WebkitTransformOrigin', 'center center ' + $iZ + 'px');
     $(window).resize(function () {
@@ -244,11 +253,17 @@ if ($('#music').length) {
     });
     $subList1.find('.text div').slimScroll({
         width: 'auto',
-        height: '475px'
+        height: '475px',
+        size: '2px',
+        distance: '-4px'
+    });
+    $subList1.find('.slimScrollDiv').css({
+        'overflow': 'visible'
     });
 
     //天王天后切换
-    $peopleLi = $('#people-detail').find('li');
+    $peopleDetail = $('#people-detail')
+    $peopleLi = $peopleDetail.find('li');
     $peopleListLi = $('#people-list').find('li');
 
     $peopleListLi.click(function () {
@@ -262,8 +277,14 @@ if ($('#music').length) {
         });
     });
 
-    $('#people-detail').find('.text p').slimScroll({
-        height: '370px'
+    $peopleDetail.find('.text p').slimScroll({
+        height: '370px',
+        size: '4px',
+        distance: '-10px'
+    });
+
+    $peopleDetail.find('.slimScrollDiv').css({
+        'overflow': 'visible'
     });
 
     //经典名曲列表
@@ -279,18 +300,6 @@ if ($('#music').length) {
                 author: '陈慧娴',
                 url: '../../media/music/陈慧娴 - 千千阙歌.mp3',
                 pic: '../images/music-qianqianquege.jpg'
-            },
-            {
-                title: '一生所爱',
-                author: '卢冠廷',
-                url: '../media/music/卢冠廷 - 一生所爱.mp3',
-                pic: '../images/music-yishengsuoai.jpg'
-            },
-            {
-                title: '一生何求',
-                author: '陈百强',
-                url: '../media/music/陈百强 - 一生何求.mp3',
-                pic: '../images/music-yishengheqiu.jpg'
             },
             {
                 title: '容易受伤的女人',
@@ -341,29 +350,27 @@ if ($('#music').length) {
     var $aplayerList = $('.aplayer-list');
     $aplayerList.slimScroll({
         width: '210px',
-        height: '467px'
+        height: '467px',
+        size: '4px'
     });
 
     $aplayerList.parent().css({
         'position': 'absolute',
         'top': '-396px',
         'right': '-220px'
-    })
+    });
 
     //流行歌曲
     var $song = $('#popular-music-btn');
     var audioContext,analyser,sourceNode,freqArray,nowbtn,num,k,m,n;
-    var $btnSongs = $song.find('div');
-    var abtns = document.getElementById('popular-song').getElementsByTagName('div');
+    var $btnSongs = $song.find('.pic');
     var $stop = $('.stop');
     var audio = new Audio();
     var btnLen = 5;
     var musicList = [
-        '../media/music/陈慧娴 - 千千阙歌.mp3',
-        '../media/music/卢冠廷 - 一生所爱.mp3',
-        '../media/music/陈百强 - 一生何求.mp3',
-        '../media/music/王菲 - 容易受伤的女人.mp3',
-        '../media/music/刘德华 - 一起走过的日子.mp3'
+        '../media/music/Twins - 下一站天后.mp3',
+        '../media/music/古巨基 - 爱与诚.mp3',
+        '../media/music/陈奕迅 - 单车.mp3'
     ];
 
     $stop.click(function (){
@@ -374,11 +381,14 @@ if ($('#music').length) {
     $btnSongs.click(function () {
         init();
         audio.src = musicList[$(this).index()];
+        $btnSongs.removeClass('active');
+        $(this).addClass('active');
         play();
         nowbtn = $(this);
     });
 
     function init(){
+        $btnSongs.removeClass('active');
         audio.pause();
         audio = null;
         audio = new Audio();
@@ -417,7 +427,6 @@ if ($('#music').length) {
         //得到数组
         analyser.getByteFrequencyData(freqArray);
 
-
         fn(freqArray);
 
         if(audio.paused){
@@ -431,10 +440,10 @@ if ($('#music').length) {
     }
 
     function fn(arr){
-        var step = Math.round(arr.length / 8);
+        var step = Math.round(arr.length / 3);
         for( var i = 0; i < btnLen; i++ ){
             num = arr[i * step];
-            k = (num) / 200 * 100;
+            k = (num) / 500 * 100;
             m = 100 - k;
             n = (m-30)>0?(m-30):0;
             //abtns[i].style.cssText = "-webkit-transform:(0," + n + "%,0);transform:translate3d(0," + n +"%,0)";
@@ -518,20 +527,28 @@ if ($videoWrap.length) {
     }
 
     if ($video3.length) {
+        var $mask = $('.mask');
+
         $('#ddx-info').click(function () {
             $('.mask').stop().slideDown();
         });
 
-        $('.mask').click(function () {
+        $mask.click(function () {
             $(this).stop().slideUp();
-        })
+        });
+
+        $mask.find('.text > div').slimScroll({
+            width: '100%',
+            height: '550px',
+            size: '4px',
+            distance: '-10px'
+        });
+
+        $mask.find('.slimScrollDiv').css({
+            'overflow': 'visible'
+        });
     }
 
-
-    $('.mask').find('.text > div').slimScroll({
-        width: '100%',
-        height: '550px'
-    });
 }
 
 

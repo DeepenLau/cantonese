@@ -107,7 +107,7 @@
                 top: @baseTop + 40;
                 background: url("../images/history/history-bookmark-2.png") no-repeat;
             }
-            .positive{
+            .positive {
                 //transform: translateZ(4px)
             }
         }
@@ -117,7 +117,7 @@
                 top: @baseTop + 80;
                 background: url("../images/history/history-bookmark-3.png") no-repeat;
             }
-            .positive{
+            .positive {
                 //transform: translateZ(3px)
             }
         }
@@ -127,7 +127,7 @@
                 top: @baseTop + 120;
                 background: url("../images/history/history-bookmark-4.png") no-repeat;
             }
-            .positive{
+            .positive {
                 //transform: translateZ(2px)
             }
         }
@@ -137,7 +137,7 @@
                 top: @baseTop + 160;
                 background: url("../images/history/history-bookmark-5.png") no-repeat;
             }
-            .positive{
+            .positive {
                 //transform: translateZ(1px)
             }
         }
@@ -768,7 +768,7 @@
             color: @normalRed;
             font-size: 14px;
             height: auto;
-            padding: 10px 20px;
+            padding: 16px 20px;
             .aplayer-list-cur {
                 top: 15px;
             }
@@ -793,17 +793,60 @@
     }
 
     //流行歌曲
+    #popular-music {
+        background: red;
+    }
     #popular-music-btn {
-        div {
-            width: 100px;
-            height: 100px;
-            background: red;
-            float: left;
+        position: relative;
+        height: 550px;
+        top: -30px;
+        .pic {
+            position: absolute;
+            border: 5px solid #fff;
+            overflow: hidden;
             margin: 10px;
-            border-radius: 50%;
+            border-radius: 30px;
             color: #fff;
             line-height: 100px;
             text-align: center;
+            box-shadow: 5px 5px 20px #000;
+            &.active {
+                border-color: @normalRed;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .eason {
+            width: 268px;
+            left: 72%;
+        }
+        .gjj {
+            bottom: 0;
+            left: 30%;
+            width: 341px;
+        }
+        .twins {
+            left: 0;
+            width: 341px;
+        }
+        .stop {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+            height: 40px;
+            background: #fff;
+            border: none;
+            border-radius: 30px;
+            color: #000;
+            font-size: 18px;
+            box-shadow: 1px 1px 5px #000;
+            cursor: pointer;
+            &:hover {
+                background: @normalRed;
+                color: #fff;
+            }
         }
     }
 }
