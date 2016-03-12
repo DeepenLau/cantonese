@@ -1,6 +1,7 @@
 require('aplayer/dist/APlayer.min.css');
 require('videojs/dist//video-js/video-js.min.css');
 require.context('videojs/dist//video-js/font');
+require('./favicon.ico');
 
 require('./less/style.less');
 
