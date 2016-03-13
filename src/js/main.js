@@ -538,6 +538,8 @@ if ($videoWrap.length) {
         $tags.click(function () {
             init1();
             au.src = $(this).attr('data-src');
+            $tags.removeClass('active');
+            $(this).addClass('active');
             play1();
         });
 
