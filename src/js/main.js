@@ -362,7 +362,7 @@ if ($('#music').length) {
 
     //流行歌曲
     var $song = $('#popular-music-btn');
-    var audioContext,analyser,sourceNode,freqArray,nowbtn,num,k,m,n;
+    var audioContext, analyser, sourceNode, freqArray, nowbtn, num, k, m, n;
     var $btnSongs = $song.find('.pic');
     var $stop = $('.stop');
     var audio = new Audio();
@@ -373,7 +373,7 @@ if ($('#music').length) {
         '../media/music/陈奕迅 - 单车.mp3'
     ];
 
-    $stop.click(function (){
+    $stop.click(function () {
         init();
         audio.pause();
     });
@@ -387,7 +387,7 @@ if ($('#music').length) {
         nowbtn = $(this);
     });
 
-    function init(){
+    function init() {
         $btnSongs.removeClass('active');
         audio.pause();
         audio = null;
@@ -395,14 +395,14 @@ if ($('#music').length) {
     }
 
     //监听音频加载完成出发的事件
-    function play(){
-        audio.addEventListener('canplay', function (e){
+    function play() {
+        audio.addEventListener('canplay', function (e) {
             analyser = sourceNode = null;
             setup();
         }, false);
     }
 
-    function setup(){
+    function setup() {
         // 为了得到音频数据创建的对象
         audioContext = audioContext || new AudioContext();
         // 调用音频解码器
@@ -418,7 +418,7 @@ if ($('#music').length) {
         update();
     }
 
-    function update(){
+    function update() {
         //audio.paused  设置或返回音频/视频是否暂停
         //audio.currentTime 设置或返回音频/视频中的当前播放位置（以秒计）
         //audio.pause();
@@ -429,34 +429,34 @@ if ($('#music').length) {
 
         fn(freqArray);
 
-        if(audio.paused){
+        if (audio.paused) {
             freqArray = null;
-            for( var i = 0; i < btnLen; i++ ){
+            for (var i = 0; i < btnLen; i++) {
                 $btnSongs.eq(i).attr('style', '');
             }
-        }else{
+        } else {
             requestAnimationFrame(update);
         }
     }
 
-    function fn(arr){
+    function fn(arr) {
         var step = Math.round(arr.length / 3);
-        for( var i = 0; i < btnLen; i++ ){
+        for (var i = 0; i < btnLen; i++) {
             num = arr[i * step];
             k = (num) / 500 * 100;
             m = 100 - k;
-            n = (m-30)>0?(m-30):0;
+            n = (m - 30) > 0 ? (m - 30) : 0;
             //abtns[i].style.cssText = "-webkit-transform:(0," + n + "%,0);transform:translate3d(0," + n +"%,0)";
             //$btnSongs.eq(i).css({
             //    'transform': 'translate3d(0,'+ n +'%,0)'
             //});
-            if(i==0){
+            if (i == 0) {
                 //nowMusic.style.background = 'rgb('+ num +','+ num +','+ num +')';
                 //nowbtn.style.webkitTransform = 'translateY('+ -m/2 +'px)';
                 //nowbtn.style.webkitTransform = 'translateY(-50px) scale('+ (2-m/80) +','+ (2-m/80) +')'
                 nowbtn.css({
-                    'webkitTransform': 'scale('+ (2-m/80) +','+ (2-m/80) +')',
-                    'transform': 'scale('+ (2-m/80) +','+ (2-m/80) +')'
+                    'webkitTransform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')',
+                    'transform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')'
                 })
             }
         }
@@ -470,6 +470,7 @@ if ($videoWrap.length) {
     var $videoList = $('.video-list');
     var $videoJs = $('#video-js');
     var $video1 = $('#video-1');
+    var $video2 = $('#video-2');
     var $video3 = $('#video-3');
 
     $videoList.slimScroll({
@@ -526,6 +527,47 @@ if ($videoWrap.length) {
         })
     }
 
+    //经典广告
+    if ($video2.length) {
+        var $tagsWrap = $('#tags-cloud-wrap');
+        var $tags = $tagsWrap.find('a');
+        var au = new Audio();
+        var $pauseBtn = $('#pause-btn');
+        var $playBtn = $('#play-btn');
+
+        $tags.click(function () {
+            init1();
+            au.src = $(this).attr('data-src');
+            play1();
+        });
+
+        $pauseBtn.click(function (){
+            au.pause();
+        });
+
+        $playBtn.click(function(){
+            au.play();
+        });
+
+        function init1() {
+            au.pause();
+            au = null;
+            au = new Audio();
+        }
+
+        //监听音频加载完成出发的事件
+        function play1() {
+            au.addEventListener('canplay', function (e) {
+                //analyser = sourceNode = null;
+                //setup();
+                $pauseBtn.show(1000);
+                $playBtn.show(1000);
+                au.play();
+            }, false);
+        }
+    }
+
+    //栋笃笑简介
     if ($video3.length) {
         var $mask = $('.mask');
 
