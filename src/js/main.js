@@ -298,7 +298,7 @@ if ($('#music').length) {
             {
                 title: '千千阙歌',
                 author: '陈慧娴',
-                url: '../../media/music/陈慧娴 - 千千阙歌.mp3',
+                url: '../media/music/陈慧娴 - 千千阙歌.mp3',
                 pic: '../images/music-qianqianquege.jpg'
             },
             {
@@ -328,7 +328,7 @@ if ($('#music').length) {
             {
                 title: '几分伤心几分痴',
                 author: '王杰',
-                url: '../../media/music/王杰 - 几分伤心几分痴.mp3',
+                url: '../media/music/王杰 - 几分伤心几分痴.mp3',
                 pic: '../images/music-jifenshangxinjifenchi.jpg'
             },
             {
@@ -407,9 +407,9 @@ if ($('#music').length) {
         audioContext = audioContext || new AudioContext();
         // 调用音频解码器
         analyser = (analyser || audioContext.createAnalyser());
-        //
+
         sourceNode = audioContext.createMediaElementSource(audio);
-        //
+
         sourceNode.connect(analyser);
         sourceNode.connect(audioContext.destination);
 
