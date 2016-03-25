@@ -157,6 +157,7 @@
     .main {
         position: relative;
         height: 500px;
+        margin-top: 70px;
         &:hover {
             .cover {
                 left: -30px;
@@ -167,6 +168,10 @@
                     transform: rotateZ(360deg);
                 }
             }
+            li {
+                opacity: 1 !important;
+                left: 230px !important;
+            }
         }
     }
     .main div {
@@ -174,10 +179,11 @@
         transition: .5s;
     }
     .cover {
-        z-index: 2;
+        z-index: 100;
         left: 0;
     }
     .disc {
+        position: relative;
         right: 100px;
         top: 10px;
         width: 571px;
@@ -191,17 +197,28 @@
     .sub-nav-wrap {
         width: 100%;
         position: relative;
+        top: 0;
         .sub-nav {
             text-align: center;
             li {
-                position: relative;
+                position: absolute;
                 display: inline-block;
                 margin: 0 60px;
+                left: 0;
+                z-index: 99;
+                opacity: 0;
+                transition: 1s;
                 &:hover {
                     .sub-disc {
                         left: 90px;
                         transform: rotateZ(360deg);
                     }
+                }
+                &:first-child{
+                    top: 40px;
+                }
+                &:last-child {
+                    top: 340px;
                 }
             }
             .sub-disc {
