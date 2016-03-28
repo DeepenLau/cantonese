@@ -362,30 +362,53 @@ if ($('#music').length) {
 
     //流行歌曲
     var $song = $('#popular-music-btn');
-    var audioContext, analyser, sourceNode, freqArray, nowbtn, num, k, m, n;
-    var $btnSongs = $song.find('.pic');
+
+    var audioContext, analyser, sourceNode, freqArray, nowbtn, nowbtnLi,num, k, m, n;
+    var $btnSongs = $('.pic');
+    var $btnSongsUl = $btnSongs.find('ul');
+    var $songLi = $btnSongs.find('li');
     var $stop = $('.stop');
     var audio = new Audio();
-    var btnLen = 5;
     var musicList = [
         '../media/music/Twins - 下一站天后.mp3',
         '../media/music/古巨基 - 爱与诚.mp3',
         '../media/music/陈奕迅 - 单车.mp3'
     ];
 
+    var strLi = '';
+    for(var j=0; j<100; j++){
+        strLi += '<li></li>';
+    }
+    $btnSongsUl.html(strLi);
+
     $stop.click(function () {
         init();
         audio.pause();
+        btnSongs.stopSong();
     });
 
-    $btnSongs.click(function () {
-        init();
-        audio.src = musicList[$(this).index()];
-        $btnSongs.removeClass('active');
-        $(this).addClass('active');
-        play();
-        nowbtn = $(this);
-    });
+    var btnSongs = (function (){
+        $btnSongs.click(function () {
+            init();
+            audio.src = musicList[$(this).index()];
+            $btnSongs.removeClass('active');
+            $(this).addClass('active');
+            $stop.css('opacity', '1');
+            play();
+            //nowbtn = $(this);
+            nowbtnLi = $(this).find('li');
+            // $('.wave-mask').css('opacity', '0');
+            stopSong();
+            $(this).find('.wave-mask').css('opacity', '1');
+
+        });
+        function stopSong() {
+            $('.wave-mask').css('opacity', '0');
+        }
+        return {
+            stopSong: stopSong
+        };
+    })();
 
     function init() {
         $btnSongs.removeClass('active');
@@ -428,11 +451,10 @@ if ($('#music').length) {
         analyser.getByteFrequencyData(freqArray);
 
         fn(freqArray);
-
         if (audio.paused) {
             freqArray = null;
-            for (var i = 0; i < btnLen; i++) {
-                $btnSongs.eq(i).attr('style', '');
+            for (var i = 0; i < 9; i++) {
+                $songLi.eq(i).attr('style', '');
             }
         } else {
             requestAnimationFrame(update);
@@ -440,25 +462,27 @@ if ($('#music').length) {
     }
 
     function fn(arr) {
-        var step = Math.round(arr.length / 3);
-        for (var i = 0; i < btnLen; i++) {
+        var step = Math.round(arr.length / 140);
+        for (var i = 0; i < 100; i++) {
             num = arr[i * step];
-            k = (num) / 500 * 100;
-            m = 100 - k;
+            k = (num) / nowbtnLi.eq(i).outerHeight()/3 * 100;
+            m = 200 - k;
             n = (m - 30) > 0 ? (m - 30) : 0;
             //abtns[i].style.cssText = "-webkit-transform:(0," + n + "%,0);transform:translate3d(0," + n +"%,0)";
-            //$btnSongs.eq(i).css({
-            //    'transform': 'translate3d(0,'+ n +'%,0)'
-            //});
-            if (i == 0) {
-                //nowMusic.style.background = 'rgb('+ num +','+ num +','+ num +')';
-                //nowbtn.style.webkitTransform = 'translateY('+ -m/2 +'px)';
-                //nowbtn.style.webkitTransform = 'translateY(-50px) scale('+ (2-m/80) +','+ (2-m/80) +')'
-                nowbtn.css({
-                    'webkitTransform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')',
-                    'transform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')'
-                })
-            }
+            nowbtnLi.eq(i).css({
+                //'transform': 'translate3d(0,'+ n +'%,0)',
+                'transform': 'translateY(' + n + '%)',
+                'WebkitTransform': 'translateY(' + n + '%)'
+            });
+            //if (i == 0) {
+            //    //nowMusic.style.background = 'rgb('+ num +','+ num +','+ num +')';
+            //    //nowbtn.style.webkitTransform = 'translateY('+ -m/2 +'px)';
+            //    //nowbtn.style.webkitTransform = 'translateY(-50px) scale('+ (2-m/80) +','+ (2-m/80) +')'
+            //    nowbtn.css({
+            //        'webkitTransform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')',
+            //        'transform': 'scale(' + (2 - m / 80) + ',' + (2 - m / 80) + ')'
+            //    })
+            //}
         }
     }
 }
