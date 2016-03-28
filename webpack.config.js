@@ -69,7 +69,7 @@ module.exports = {
     },
     module: {
         loaders: [
-            {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer')},
+            {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer?{browsers:["> 0.1%", "Firefox 15"]}')},
             {test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer!less')},
             {test: /\.mp3$/, loader: 'file?name=../media/music/[name].[ext]'},
             {test: /\.mp4$/, loader: 'file?name=../media/video/[name].[ext]'},
@@ -77,16 +77,6 @@ module.exports = {
             {test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file?name=../images/[name].[ext]'},
             {test: /\.ico$/, loader: 'file?name=../[name].[ext]'}
         ]
-    },
-    imagemin: {
-        pngquant: {
-            floyd: 0.5,
-            speed: 5
-        },
-        jpegtran: {
-            progressive: true,
-            arithmetic: false
-        }
     },
     plugins: plugins
 };
