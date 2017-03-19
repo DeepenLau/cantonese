@@ -7,8 +7,6 @@
 Icon?
 ehthumbs.db
 Thumbs.db
-*.mp3
-*.mp4
 dist/
 node_modules/
 npm-debug.log
